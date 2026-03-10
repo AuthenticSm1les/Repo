@@ -3,7 +3,7 @@
 options="performance\nbalanced\npower-saver"
 current=$(powerprofilesctl get)
 
-chosen=$(echo -e "$options" | rofi -config -dmenu -p "Power Profile ($current)")
+chosen=$(echo -e "$options" | rofi -dmenu -p "Power Profile ($current)")
 
 case "$chosen" in
     "performance")  powerprofilesctl set performance;;
