@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+options="performance\nbalanced\npower-saver"
+current=$(powerprofilesctl get)
+
+chosen=$(echo -e "$options" | rofi -config -dmenu -p "Power Profile ($current)")
+
+case "$chosen" in
+    "performance")  powerprofilesctl set performance;;
+    "balanced") powerprofilesctl set balanced;;
+    "power-saver") powerprofilesctl set power-saver;;
+    *) exit 1 ;;
+esac
